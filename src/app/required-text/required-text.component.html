@@ -1,0 +1,14 @@
+<input
+  type="text"
+  #input
+  (input)="onChange($event.target.value)"
+  (blur)="onTouched()"
+  [disabled]="disabled"
+/>
+
+<div
+  class="error"
+  *ngIf="controlDirective.control && !controlDirective.control.valid"
+>
+  Invalid
+</div>
