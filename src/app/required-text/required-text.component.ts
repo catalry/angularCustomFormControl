@@ -1,4 +1,4 @@
-import { Component, OnInit, Self, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Self, ViewChild, ElementRef, Optional } from '@angular/core';
 import { ControlValueAccessor, NgControl, Validators } from '@angular/forms';
 
 @Component({
@@ -8,10 +8,10 @@ import { ControlValueAccessor, NgControl, Validators } from '@angular/forms';
 })
 export class RequiredTextComponent implements OnInit, ControlValueAccessor {
   disabled!: boolean;
-  constructor(@Self() public controlDirective: NgControl) {
+  constructor(@Optional() @Self() public controlDirective: NgControl) {
     controlDirective.valueAccessor = this;
   }
-  onChange: () => void;
+  onChange: (_:any) => void;
   onTouched: () => void;
   @ViewChild("input") input!: ElementRef;
   ngOnInit(): void {
